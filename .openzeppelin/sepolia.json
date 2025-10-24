@@ -29,6 +29,16 @@
       "address": "0x78BCe05B99dD4a9e352e60a2ae6FDDE21a839cc2",
       "txHash": "0xa7078b7e2a4be9402dd8e9f9311e43078bd294d0f17fcb2fcc174f96c74a524a",
       "kind": "transparent"
+    },
+    {
+      "address": "0x360B51d9C99B75Cc5889c33AC3DbDcA9b5Bc8F3B",
+      "txHash": "0x9f5d7040a6c97e4517b3a37400b8cdb417814ff629be3e9d9b470dcef22083ea",
+      "kind": "transparent"
+    },
+    {
+      "address": "0xde9FaE428c7574fFc84041DEFEa460720b1434F3",
+      "txHash": "0x7d7cff862ab8ae54362d693c698c35573153706e11cb38e0ed7eb54df84f56e6",
+      "kind": "transparent"
     }
   ],
   "impls": {
@@ -982,6 +992,470 @@
           "t_mapping(t_address,t_mapping(t_address,t_int256))": {
             "label": "mapping(address => mapping(address => int256))",
             "numberOfBytes": "32"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "cdc445811c03aba15a35c6ecfe716416df9c62ebc766e74ed44064e8c885b0fc": {
+      "address": "0xD1Bb4734bb2249B9152fd92255b6CF66318bC4ce",
+      "txHash": "0xce61f727941a739779a209bf412b4b428315b3422d001621acff601eff66ee10",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\Initializable.sol:25"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\Initializable.sol:30"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_address",
+            "contract": "SafeOwnable",
+            "src": "contracts\\base\\SafeOwnable.sol:7"
+          },
+          {
+            "label": "_candidate",
+            "offset": 0,
+            "slot": "52",
+            "type": "t_address",
+            "contract": "SafeOwnable",
+            "src": "contracts\\base\\SafeOwnable.sol:8"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "53",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "SafeOwnable",
+            "src": "contracts\\base\\SafeOwnable.sol:11"
+          },
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "103",
+            "type": "t_bool",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\PausableUpgradeable.sol:28"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "104",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\PausableUpgradeable.sol:96"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "153",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "OwnerPausable",
+            "src": "contracts\\base\\OwnerPausable.sol:9"
+          },
+          {
+            "label": "_collateralConfigMap",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_mapping(t_address,t_struct(Config)32102_storage)",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:8"
+          },
+          {
+            "label": "_clearingHouseConfig",
+            "offset": 0,
+            "slot": "204",
+            "type": "t_address",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:10"
+          },
+          {
+            "label": "_vault",
+            "offset": 0,
+            "slot": "205",
+            "type": "t_address",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:12"
+          },
+          {
+            "label": "_maxCollateralTokensPerAccount",
+            "offset": 20,
+            "slot": "205",
+            "type": "t_uint8",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:14"
+          },
+          {
+            "label": "_mmRatioBuffer",
+            "offset": 21,
+            "slot": "205",
+            "type": "t_uint24",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:16"
+          },
+          {
+            "label": "_debtNonSettlementTokenValueRatio",
+            "offset": 24,
+            "slot": "205",
+            "type": "t_uint24",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:18"
+          },
+          {
+            "label": "_liquidationRatio",
+            "offset": 27,
+            "slot": "205",
+            "type": "t_uint24",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:20"
+          },
+          {
+            "label": "_clInsuranceFundFeeRatio",
+            "offset": 0,
+            "slot": "206",
+            "type": "t_uint24",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:22"
+          },
+          {
+            "label": "_debtThreshold",
+            "offset": 0,
+            "slot": "207",
+            "type": "t_uint256",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:24"
+          },
+          {
+            "label": "_collateralValueDust",
+            "offset": 0,
+            "slot": "208",
+            "type": "t_uint256",
+            "contract": "CollateralManagerStorageV1",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:26"
+          },
+          {
+            "label": "_whitelistedDebtThresholdMap",
+            "offset": 0,
+            "slot": "209",
+            "type": "t_mapping(t_address,t_uint256)",
+            "contract": "CollateralManagerStorageV2",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:31"
+          },
+          {
+            "label": "_totalWhitelistedDebtThreshold",
+            "offset": 0,
+            "slot": "210",
+            "type": "t_uint256",
+            "contract": "CollateralManagerStorageV2",
+            "src": "contracts\\storage\\CollateralManagerStorage.sol:33"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
+          },
+          "t_mapping(t_address,t_struct(Config)32102_storage)": {
+            "label": "mapping(address => struct Collateral.Config)",
+            "numberOfBytes": "32"
+          },
+          "t_mapping(t_address,t_uint256)": {
+            "label": "mapping(address => uint256)",
+            "numberOfBytes": "32"
+          },
+          "t_struct(Config)32102_storage": {
+            "label": "struct Collateral.Config",
+            "members": [
+              {
+                "label": "priceFeed",
+                "type": "t_address",
+                "offset": 0,
+                "slot": "0"
+              },
+              {
+                "label": "collateralRatio",
+                "type": "t_uint24",
+                "offset": 20,
+                "slot": "0"
+              },
+              {
+                "label": "discountRatio",
+                "type": "t_uint24",
+                "offset": 23,
+                "slot": "0"
+              },
+              {
+                "label": "depositCap",
+                "type": "t_uint256",
+                "offset": 0,
+                "slot": "1"
+              }
+            ],
+            "numberOfBytes": "64"
+          },
+          "t_uint24": {
+            "label": "uint24",
+            "numberOfBytes": "3"
+          },
+          "t_uint256": {
+            "label": "uint256",
+            "numberOfBytes": "32"
+          },
+          "t_uint8": {
+            "label": "uint8",
+            "numberOfBytes": "1"
+          }
+        },
+        "namespaces": {}
+      }
+    },
+    "1a4e0a7f49bce0965abcfe51f088361f53cf64f0210b68e78a0a6c1d435e5aa5": {
+      "address": "0xCbE7aF10C512cA5567FB4D38e4543966AEE704A2",
+      "txHash": "0xf2bde62c8cae68f54716d0ecadc6b0b6d0a850da7ba2dd96f9d25b79a5980614",
+      "layout": {
+        "storage": [
+          {
+            "label": "_initialized",
+            "offset": 0,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\Initializable.sol:25"
+          },
+          {
+            "label": "_initializing",
+            "offset": 1,
+            "slot": "0",
+            "type": "t_bool",
+            "contract": "Initializable",
+            "src": "@openzeppelin\\contracts-upgradeable\\proxy\\Initializable.sol:30"
+          },
+          {
+            "label": "_status",
+            "offset": 0,
+            "slot": "1",
+            "type": "t_uint256",
+            "contract": "ReentrancyGuardUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ReentrancyGuardUpgradeable.sol:37"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "2",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "ReentrancyGuardUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ReentrancyGuardUpgradeable.sol:67"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "51",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "ContextUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\ContextUpgradeable.sol:31"
+          },
+          {
+            "label": "_owner",
+            "offset": 0,
+            "slot": "101",
+            "type": "t_address",
+            "contract": "SafeOwnable",
+            "src": "contracts\\base\\SafeOwnable.sol:7"
+          },
+          {
+            "label": "_candidate",
+            "offset": 0,
+            "slot": "102",
+            "type": "t_address",
+            "contract": "SafeOwnable",
+            "src": "contracts\\base\\SafeOwnable.sol:8"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "103",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "SafeOwnable",
+            "src": "contracts\\base\\SafeOwnable.sol:11"
+          },
+          {
+            "label": "_paused",
+            "offset": 0,
+            "slot": "153",
+            "type": "t_bool",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\PausableUpgradeable.sol:28"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "154",
+            "type": "t_array(t_uint256)49_storage",
+            "contract": "PausableUpgradeable",
+            "src": "@openzeppelin\\contracts-upgradeable\\utils\\PausableUpgradeable.sol:96"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "203",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "OwnerPausable",
+            "src": "contracts\\base\\OwnerPausable.sol:9"
+          },
+          {
+            "label": "_trustedForwarder",
+            "offset": 0,
+            "slot": "253",
+            "type": "t_address",
+            "contract": "BaseRelayRecipient",
+            "src": "contracts\\gsn\\BaseRelayRecipient.sol:18"
+          },
+          {
+            "label": "__gap",
+            "offset": 0,
+            "slot": "254",
+            "type": "t_array(t_uint256)50_storage",
+            "contract": "BaseRelayRecipient",
+            "src": "contracts\\gsn\\BaseRelayRecipient.sol:21"
+          },
+          {
+            "label": "_quoteToken",
+            "offset": 0,
+            "slot": "304",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:9"
+          },
+          {
+            "label": "_uniswapV3Factory",
+            "offset": 0,
+            "slot": "305",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:10"
+          },
+          {
+            "label": "_settlementTokenDecimals",
+            "offset": 20,
+            "slot": "305",
+            "type": "t_uint8",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:13"
+          },
+          {
+            "label": "_clearingHouseConfig",
+            "offset": 0,
+            "slot": "306",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:16"
+          },
+          {
+            "label": "_vault",
+            "offset": 0,
+            "slot": "307",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:17"
+          },
+          {
+            "label": "_exchange",
+            "offset": 0,
+            "slot": "308",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:18"
+          },
+          {
+            "label": "_orderBook",
+            "offset": 0,
+            "slot": "309",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:19"
+          },
+          {
+            "label": "_accountBalance",
+            "offset": 0,
+            "slot": "310",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:20"
+          },
+          {
+            "label": "_insuranceFund",
+            "offset": 0,
+            "slot": "311",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV1",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:21"
+          },
+          {
+            "label": "_delegateApproval",
+            "offset": 0,
+            "slot": "312",
+            "type": "t_address",
+            "contract": "ClearingHouseStorageV2",
+            "src": "contracts\\storage\\ClearingHouseStorage.sol:25"
+          }
+        ],
+        "types": {
+          "t_address": {
+            "label": "address",
+            "numberOfBytes": "20"
+          },
+          "t_array(t_uint256)49_storage": {
+            "label": "uint256[49]",
+            "numberOfBytes": "1568"
+          },
+          "t_array(t_uint256)50_storage": {
+            "label": "uint256[50]",
+            "numberOfBytes": "1600"
+          },
+          "t_bool": {
+            "label": "bool",
+            "numberOfBytes": "1"
           },
           "t_uint256": {
             "label": "uint256",

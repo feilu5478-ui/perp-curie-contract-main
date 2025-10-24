@@ -68,8 +68,6 @@ async function main() {
       { 
         initializer: "initialize",
         kind: "transparent",
-        // 添加安全选项避免初始化问题
-        // unsafeAllow: ["state-variable-immutable", "constructor", "delegatecall"],
       }
     );
 
