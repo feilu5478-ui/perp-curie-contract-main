@@ -1,0 +1,9 @@
+{
+  "timestamp": "2025-10-23T11:42:07.409Z",
+  "network": "sepolia",
+  "contract": "InsuranceFund",
+  "address": "0x03063939aCaE3231b3ec535207833B2f37bCD848",
+  "settlementToken": "0x4D9c695d6559C71fe8990EA3791bd14214772931",
+  "implementation": "0xFD186C97518687B31fD9069ACa8bf744f86EfB63",
+  "notes": "Vault and SurplusBeneficiary need to be set later"
+}

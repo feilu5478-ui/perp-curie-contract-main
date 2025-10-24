@@ -1,0 +1,34 @@
+{
+  "timestamp": "2025-10-24T03:09:14.537Z",
+  "network": "sepolia",
+  "deployer": "0x7c6332D587B13E38A677f1556809301D5A2E1B60",
+  "upgradeable": false,
+  "tokens": {
+    "baseToken": {
+      "address": "0x118Eb3F0d7c0aE4056328851B3eE7510108AA230",
+      "name": "Perp Base Token",
+      "symbol": "PBASE",
+      "decimals": 18,
+      "priceFeed": "0xB640F67fA662B03a68dE21ceB6C1d6C9181e59ff",
+      "status": "Open"
+    },
+    "quoteToken": {
+      "address": "0x41cffBcE944DDcb71769Dec7C7628a4Cf88Bad9F",
+      "name": "Perp Quote Token",
+      "symbol": "PQUOTE",
+      "decimals": 18
+    }
+  },
+  "addressOrder": {
+    "baseToken": "0x118eb3f0d7c0ae4056328851b3ee7510108aa230",
+    "quoteToken": "0x41cffbce944ddcb71769dec7c7628a4cf88bad9f",
+    "isValid": true
+  },
+  "notes": [
+    "Deployed as non-upgradeable contracts",
+    "BaseToken must be token0 in Uniswap pool",
+    "QuoteToken must be token1 in Uniswap pool",
+    "Address order validation is important for MarketRegistry",
+    "Need to create Uniswap V3 pool with these tokens"
+  ]
+}
