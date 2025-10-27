@@ -3,18 +3,18 @@ import { ethers } from "hardhat";
 
 async function main() {
   // 配置参数 - 需要替换为实际地址
-  const VAULT_ADDRESS = "YOUR_VAULT_ADDRESS";
-  const CLEARING_HOUSE = "YOUR_CLEARING_HOUSE_ADDRESS";
-  const COLLATERAL_MANAGER = "YOUR_COLLATERAL_MANAGER_ADDRESS";
-  const WETH9 = "YOUR_WETH9_ADDRESS";
-  const TRUSTED_FORWARDER = "YOUR_TRUSTED_FORWARDER_ADDRESS";
+  const VAULT_ADDRESS = "0x2EE8E5374a8A89f4B3B98018703F6d131B1de013";
+  const CLEARING_HOUSE = "0x2F925bF3C24dd2677D8064938d3FC8317E1636a4";
+  const COLLATERAL_MANAGER = "0xc94bEa8adcD9504307f6Dd50Cb0a7402Df53c10A";
+  // const WETH9 = "YOUR_WETH9_ADDRESS";
+  // const TRUSTED_FORWARDER = "YOUR_TRUSTED_FORWARDER_ADDRESS";
 
   console.log("设置 Vault 相关地址...");
   console.log("Vault 地址:", VAULT_ADDRESS);
   console.log("ClearingHouse 地址:", CLEARING_HOUSE);
   console.log("CollateralManager 地址:", COLLATERAL_MANAGER);
-  console.log("WETH9 地址:", WETH9);
-  console.log("TrustedForwarder 地址:", TRUSTED_FORWARDER);
+  // console.log("WETH9 地址:", WETH9);
+  // console.log("TrustedForwarder 地址:", TRUSTED_FORWARDER);
 
   const [deployer] = await ethers.getSigners();
   console.log("执行者地址:", deployer.address);
@@ -31,7 +31,7 @@ async function main() {
   }
 
   // 设置 ClearingHouse 地址
-  if (CLEARING_HOUSE !== "YOUR_CLEARING_HOUSE_ADDRESS") {
+  if (CLEARING_HOUSE !== "0x2F925bF3C24dd2677D8064938d3FC8317E1636a4") {
     console.log("\n设置 ClearingHouse 地址...");
     const currentClearingHouse = await vault.getClearingHouse();
     if (currentClearingHouse !== CLEARING_HOUSE) {
@@ -44,7 +44,7 @@ async function main() {
   }
 
   // 设置 CollateralManager 地址
-  if (COLLATERAL_MANAGER !== "YOUR_COLLATERAL_MANAGER_ADDRESS") {
+  if (COLLATERAL_MANAGER !== "0xc94bEa8adcD9504307f6Dd50Cb0a7402Df53c10A") {
     console.log("设置 CollateralManager 地址...");
     const currentCollateralManager = await vault.getCollateralManager();
     if (currentCollateralManager !== COLLATERAL_MANAGER) {
@@ -57,25 +57,25 @@ async function main() {
   }
 
   // 设置 WETH9 地址
-  if (WETH9 !== "YOUR_WETH9_ADDRESS") {
-    console.log("设置 WETH9 地址...");
-    const currentWETH9 = await vault.getWETH9();
-    if (currentWETH9 !== WETH9) {
-      const tx3 = await vault.setWETH9(WETH9);
-      await tx3.wait();
-      console.log("✓ WETH9 地址设置成功");
-    } else {
-      console.log("✓ WETH9 地址已经设置");
-    }
-  }
+  // if (WETH9 !== "YOUR_WETH9_ADDRESS") {
+  //   console.log("设置 WETH9 地址...");
+  //   const currentWETH9 = await vault.getWETH9();
+  //   if (currentWETH9 !== WETH9) {
+  //     const tx3 = await vault.setWETH9(WETH9);
+  //     await tx3.wait();
+  //     console.log("✓ WETH9 地址设置成功");
+  //   } else {
+  //     console.log("✓ WETH9 地址已经设置");
+  //   }
+  // }
 
   // 设置 TrustedForwarder 地址
-  if (TRUSTED_FORWARDER !== "YOUR_TRUSTED_FORWARDER_ADDRESS") {
-    console.log("设置 TrustedForwarder 地址...");
-    const tx4 = await vault.setTrustedForwarder(TRUSTED_FORWARDER);
-    await tx4.wait();
-    console.log("✓ TrustedForwarder 地址设置成功");
-  }
+  // if (TRUSTED_FORWARDER !== "YOUR_TRUSTED_FORWARDER_ADDRESS") {
+  //   console.log("设置 TrustedForwarder 地址...");
+  //   const tx4 = await vault.setTrustedForwarder(TRUSTED_FORWARDER);
+  //   await tx4.wait();
+  //   console.log("✓ TrustedForwarder 地址设置成功");
+  // }
 
   console.log("\n✅ 所有地址设置完成!");
 }

@@ -16,12 +16,12 @@ async function main() {
   const insuranceFundAddress = deployment.address;
 
   // 🔥 在这里填入你的 Vault 地址
-  const VAULT_ADDRESS = "YOUR_VAULT_ADDRESS_HERE"; // 替换为实际的 Vault 地址
+  const VAULT_ADDRESS = "0x2EE8E5374a8A89f4B3B98018703F6d131B1de013"; // 替换为实际的 Vault 地址
 
-  if (VAULT_ADDRESS === "YOUR_VAULT_ADDRESS_HERE") {
-    console.error("❌ Please set the VAULT_ADDRESS in the script");
-    return;
-  }
+  // if (VAULT_ADDRESS === "0x2EE8E5374a8A89f4B3B98018703F6d131B1de013") {
+  //   console.error("❌ Please set the VAULT_ADDRESS in the script");
+  //   return;
+  // }
 
   console.log("🔗 Setting Vault for Insurance Fund...");
   console.log(`   InsuranceFund: ${insuranceFundAddress}`);
