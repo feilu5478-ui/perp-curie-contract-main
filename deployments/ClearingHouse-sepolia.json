@@ -1,9 +1,9 @@
 {
   "network": "sepolia",
-  "timestamp": "2025-10-27T07:51:32.656Z",
-  "proxyAddress": "0x2F925bF3C24dd2677D8064938d3FC8317E1636a4",
+  "timestamp": "2025-10-28T05:26:42.968Z",
+  "proxyAddress": "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB",
   "implementationAddress": "0xCbE7aF10C512cA5567FB4D38e4543966AEE704A2",
   "adminAddress": "0x49CDFF5760D7c428e7A60d9f2714aB9FE9f2B5fE",
-  "blockNumber": 9500124,
-  "transactionHash": "0xd59ac06ef36510761492e09521edb91d88d1c18f235efa6a00c95eaab7d2fe75"
+  "blockNumber": 9506497,
+  "transactionHash": "0xeff153f00146c261779b0823f5c62b1014c7697bdf5cd136832717b8053e6682"
 }

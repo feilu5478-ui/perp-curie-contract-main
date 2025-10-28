@@ -4,10 +4,10 @@ async function main() {
   console.log("开始调用 ClearingHouse openPosition 函数...");
 
   // 合约地址 - 替换为实际部署的 ClearingHouse 地址
-  const clearingHouseAddress = "0x2F925bF3C24dd2677D8064938d3FC8317E1636a4";
+  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
   
   // 基础代币地址
-  const baseToken = "0x118Eb3F0d7c0aE4056328851B3eE7510108AA230";
+  const baseToken = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
   
   // 获取签名器
   const [signer] = await ethers.getSigners();

@@ -3,9 +3,9 @@ import { ethers } from "hardhat";
 
 async function main() {
   // 配置参数 - 需要替换为实际地址
-  const VAULT_ADDRESS = "0x2EE8E5374a8A89f4B3B98018703F6d131B1de013";
-  const CLEARING_HOUSE = "0x2F925bF3C24dd2677D8064938d3FC8317E1636a4";
-  const COLLATERAL_MANAGER = "0xc94bEa8adcD9504307f6Dd50Cb0a7402Df53c10A";
+  const VAULT_ADDRESS = "0x2daD334f3ed5156f372310457Ecf34355B71B215";
+  const CLEARING_HOUSE = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
+  const COLLATERAL_MANAGER = "0x8112A50f57277790eCBA7E1D93B7a4c139B4864E";
   // const WETH9 = "YOUR_WETH9_ADDRESS";
   // const TRUSTED_FORWARDER = "YOUR_TRUSTED_FORWARDER_ADDRESS";
 
@@ -31,7 +31,6 @@ async function main() {
   }
 
   // 设置 ClearingHouse 地址
-  if (CLEARING_HOUSE !== "0x2F925bF3C24dd2677D8064938d3FC8317E1636a4") {
     console.log("\n设置 ClearingHouse 地址...");
     const currentClearingHouse = await vault.getClearingHouse();
     if (currentClearingHouse !== CLEARING_HOUSE) {
@@ -41,10 +40,9 @@ async function main() {
     } else {
       console.log("✓ ClearingHouse 地址已经设置");
     }
-  }
+  
 
   // 设置 CollateralManager 地址
-  if (COLLATERAL_MANAGER !== "0xc94bEa8adcD9504307f6Dd50Cb0a7402Df53c10A") {
     console.log("设置 CollateralManager 地址...");
     const currentCollateralManager = await vault.getCollateralManager();
     if (currentCollateralManager !== COLLATERAL_MANAGER) {
@@ -54,7 +52,7 @@ async function main() {
     } else {
       console.log("✓ CollateralManager 地址已经设置");
     }
-  }
+  
 
   // 设置 WETH9 地址
   // if (WETH9 !== "YOUR_WETH9_ADDRESS") {

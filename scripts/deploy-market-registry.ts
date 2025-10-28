@@ -6,7 +6,7 @@ async function main() {
 
   // 配置参数
   const UNISWAP_V3_FACTORY = "0xCbaec1555707dFAff3303ed6123Db16Eb67F1791";
-  const QUOTE_TOKEN = "0x41cffbce944ddcb71769dec7c7628a4cf88bad9f";
+  const QUOTE_TOKEN = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E";
 
   console.log("使用参数:");
   console.log("UniswapV3 Factory:", UNISWAP_V3_FACTORY);

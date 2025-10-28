@@ -3,8 +3,8 @@ import { ethers } from "hardhat";
 
 async function main() {
   // 配置参数 - 需要替换为实际地址
-  const EXCHANGE_ADDRESS = "0x00c8f23c3e497FD3Ed5af36471cc29dD96028883";
-  const ACCOUNT_BALANCE_ADDRESS = "0x93EC9F5e8037c4fA5e2490A6e774B1e97Bd4CFA2";
+  const EXCHANGE_ADDRESS = "0x891b4cb8743E3Ae419226068408dD00b225Cb46A";
+  const ACCOUNT_BALANCE_ADDRESS = "0x347AAe8b046f4a75c1DE19733C5aef2baBe1fF4B";
 
   console.log("设置 Exchange 的 AccountBalance 地址...");
   console.log("Exchange 地址:", EXCHANGE_ADDRESS);

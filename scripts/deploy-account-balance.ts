@@ -6,7 +6,7 @@ async function main() {
 
   // 配置参数
   const CLEARING_HOUSE_CONFIG = "0x2D0F2F30E47918be3D99dF88983251DA221063DE";
-  const ORDER_BOOK = "0xB913E25d56C2ab388862B06274B71179C98b45E9";
+  const ORDER_BOOK = "0x269D854FF25dA67Cbe409820c742EB4600f0Cc43";
 
   console.log("使用参数:");
   console.log("ClearingHouseConfig:", CLEARING_HOUSE_CONFIG);

@@ -7,8 +7,8 @@ async function main() {
   const [signer] = await ethers.getSigners();
   
   // 合约地址
-  const marketRegistryAddress = "0x09EDAC3c1a7547c865ecDac2E8B9C63d00b8b6B8";
-  const baseToken = "0x118Eb3F0d7c0aE4056328851B3eE7510108AA230";
+  const marketRegistryAddress = "0x91F83B0351b89194366a9b6986EE7887e6F7A0c5";
+  const baseToken = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
 
   const MarketRegistry = await ethers.getContractFactory("MarketRegistry");
   const marketRegistry = MarketRegistry.attach(marketRegistryAddress);

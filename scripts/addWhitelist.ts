@@ -2,9 +2,9 @@
 import { ethers } from "hardhat";
 
 async function main() {
-  const baseToken = "0x118Eb3F0d7c0aE4056328851B3eE7510108AA230";
-  const quoteToken = "0x41cffBcE944DDcb71769Dec7C7628a4Cf88Bad9F";
-  const positionManagerAddress = "0x2F925bF3C24dd2677D8064938d3FC8317E1636a4"; // 替换为实际的NonfungiblePositionManager地址
+  const baseToken = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
+  const quoteToken = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E";
+  const positionManagerAddress = "0xf6f23547538bf705360fcee6b89aff1baed3599b"; // 替换为实际的NonfungiblePositionManager地址
 
   const BaseToken = await ethers.getContractFactory("BaseToken");
   const baseTokenContract = BaseToken.attach(baseToken);
@@ -32,8 +32,8 @@ main().catch(console.error);
 //   const [signer] = await ethers.getSigners();
   
 //   // 代币地址
-//   const baseToken = "0x118Eb3F0d7c0aE4056328851B3eE7510108AA230";
-//   const quoteToken = "0x41cffBcE944DDcb71769Dec7C7628a4Cf88Bad9F";
+//   const baseToken = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
+//   const quoteToken = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E";
   
 //   // 需要添加到白名单的地址
 //   const whitelistAddresses = [
@@ -41,8 +41,10 @@ main().catch(console.error);
 //     "0xc01DdaBBA95E9Cb45C1D7919c0B9f2fb6740c9f4", // Uniswap V3 Position Manager (Sepolia)
 //     "0x3DDB759BF377A352aA12e319a93B17ffA512Dd69", // Uniswap V3 Swap Router (Sepolia)
 //     "0xCbaec1555707dFAff3303ed6123Db16Eb67F1791", // Uniswap V3 Factory (Sepolia)
-//     "0x78BCe05B99dD4a9e352e60a2ae6FDDE21a839cc2", // 你的 Vault 合约地址
-//     "0xde9FaE428c7574fFc84041DEFEa460720b1434F3" // 你的 ClearingHouse 合约地址
+//     "0x2daD334f3ed5156f372310457Ecf34355B71B215", // 你的 Vault 合约地址
+//     "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB", // 你的 ClearingHouse 合约地址
+//     "0x91F83B0351b89194366a9b6986EE7887e6F7A0c5", //MarketRegistry地址
+//     "0xf6f23547538bf705360fcee6b89aff1baed3599b" //uniswap池子地址
 //   ];
 
 //   // 获取代币合约

@@ -3,8 +3,8 @@ import { ethers } from "hardhat";
 
 async function main() {
   // 配置参数 - 需要替换为实际地址
-  const ACCOUNT_BALANCE_ADDRESS = "YOUR_ACCOUNT_BALANCE_ADDRESS";
-  const VAULT_ADDRESS = "YOUR_VAULT_ADDRESS";
+  const ACCOUNT_BALANCE_ADDRESS = "0x347AAe8b046f4a75c1DE19733C5aef2baBe1fF4B";
+  const VAULT_ADDRESS = "0x2daD334f3ed5156f372310457Ecf34355B71B215";
 
   console.log("设置 AccountBalance 的 Vault 地址...");
   console.log("AccountBalance 地址:", ACCOUNT_BALANCE_ADDRESS);

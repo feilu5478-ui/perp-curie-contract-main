@@ -5,7 +5,7 @@ async function main() {
   console.log("开始部署 OrderBook 合约（不可升级模式）...");
 
   // 配置参数
-  const MARKET_REGISTRY = "0x09EDAC3c1a7547c865ecDac2E8B9C63d00b8b6B8";
+  const MARKET_REGISTRY = "0x3dD1c05c4BFb66dAD706325026237776A961FBcc";
 
   console.log("使用参数:");
   console.log("MarketRegistry:", MARKET_REGISTRY);
@@ -60,7 +60,7 @@ async function main() {
   // 测试基本功能
   console.log("\n测试基本功能...");
   try {
-    const openOrderIds = await orderBook.getOpenOrderIds(deployer.address, '0x118eb3f0d7c0ae4056328851b3ee7510108aa230');
+    const openOrderIds = await orderBook.getOpenOrderIds(deployer.address, '0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e');
     console.log("✓ 基本功能测试通过");
     console.log("  初始订单数量:", openOrderIds.length);
   } catch (error) {
