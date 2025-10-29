@@ -4,7 +4,7 @@ import { ethers } from "hardhat";
 async function main() {
   const baseToken = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
   const quoteToken = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E";
-  const positionManagerAddress = "0xf6f23547538bf705360fcee6b89aff1baed3599b"; // 替换为实际的NonfungiblePositionManager地址
+  const positionManagerAddress = "0xdbfed06438ea751a6f1e972745257644438c61b8"; // 替换为实际的NonfungiblePositionManager地址
 
   const BaseToken = await ethers.getContractFactory("BaseToken");
   const baseTokenContract = BaseToken.attach(baseToken);

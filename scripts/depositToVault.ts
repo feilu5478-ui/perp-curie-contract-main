@@ -9,7 +9,7 @@ async function main() {
   const quoteTokenAddress = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E"; // QuoteToken 地址
   
   // 存款金额 - 根据你的需求调整
-  const depositAmount = ethers.utils.parseUnits("1000", 18); // 存入 1000 个 QuoteToken
+  const depositAmount = ethers.utils.parseUnits("100000", 18); // 存入 1000 个 QuoteToken
 
   // 获取签名器
   const [signer] = await ethers.getSigners();

@@ -35,7 +35,7 @@ async function addPool(marketRegistry: any, baseToken: string, userAddress: stri
     }
 
     // 添加池子
-    const feeRatio = 500; // 0.05%
+    const feeRatio = 3000; // 0.05%
     console.log(`添加池子: BaseToken=${baseToken}, FeeRatio=${feeRatio}`);
 
     const tx = await marketRegistry.addPool(baseToken, feeRatio, { gasLimit: 500000 });

@@ -22,12 +22,12 @@ async function deployTokens() {
   console.log("QuoteToken 部署地址:", quoteToken.address);
   
   // 初始化 QuoteToken
-  await quoteToken.initialize("Test Quote Token", "TQT");
+  await quoteToken.initialize("Quote", "QT");
   console.log("✅ QuoteToken 初始化完成");
   
   // 铸造最大供应量给部署者
-//   await quoteToken.mintMaximumTo("");
-//   console.log("✅ QuoteToken 铸造完成");
+  // await quoteToken.mintMaximumTo("");
+  // console.log("✅ QuoteToken 铸造完成");
 
   // 2. 部署 BaseToken
   console.log("\n2. 部署 BaseToken...");
@@ -39,7 +39,7 @@ async function deployTokens() {
   console.log("BaseToken 部署地址:", baseToken.address);
   
   // 初始化 BaseToken
-  await baseToken.initialize("Test Base Token", "TBT", priceFeedAddress);
+  await baseToken.initialize("Base", "BT", priceFeedAddress);
   console.log("✅ BaseToken 初始化完成");
   
   // 铸造最大供应量给部署者
