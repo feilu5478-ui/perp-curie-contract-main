@@ -7,9 +7,9 @@ async function mintTokensToClearingHouse() {
   const [deployer] = await ethers.getSigners();
   
   // 合约地址
-  const baseTokenAddress = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
-  const quoteTokenAddress = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E"; // 你的 QuoteToken 地址
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
+  const baseTokenAddress = "0x57e6345d14a30A554806b254D161A1694eb3bD83";
+  const quoteTokenAddress = "0xE3E009ADb11434B3fb9acfb5Cb8a30cc94E52cdE"; // 你的 QuoteToken 地址
+  const clearingHouseAddress = "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf";
 
   const BaseToken = await ethers.getContractFactory("BaseToken");
   const baseToken = BaseToken.attach(baseTokenAddress);
@@ -43,7 +43,7 @@ async function mintTokensToClearingHouse() {
     console.log("BaseToken 所有者:", owner);
     
     // if (owner.toLowerCase() === deployer.address.toLowerCase()) {
-      await baseToken.mintMaximumTo(deployer.address, { gasLimit: 500000 });
+      await baseToken.mintMaximumTo(clearingHouseAddress, { gasLimit: 500000 });
       console.log("✅ BaseToken 铸造完成");
     // } else {
     //   console.log("❌ 部署者不是 BaseToken 所有者，无法铸造");
@@ -62,8 +62,8 @@ async function mintTokensToClearingHouse() {
     
   //   if (quoteTokenOwner.toLowerCase() === deployer.address.toLowerCase()) {
   //     // 给部署者铸造最大供应量
-  //     // await quoteToken.mintMaximumTo(deployer.address, { gasLimit: 500000 });
-  //     console.log("✅ QuoteToken 最大供应量铸造完成");
+      await quoteToken.mintMaximumTo(deployer.address, { gasLimit: 500000 });
+      console.log("✅ QuoteToken 最大供应量铸造完成");
   //   } else {
   //     console.log("❌ 部署者不是 QuoteToken 所有者，无法铸造");
   //     return false;
@@ -76,15 +76,15 @@ async function mintTokensToClearingHouse() {
   console.log("\n4. 验证最终状态...");
   
   const finalBaseBalance = await baseToken.balanceOf(clearingHouseAddress);
-  const finalBaseBalance1 = await baseToken.balanceOf(deployer.address);
+  // const finalBaseBalance1 = await baseToken.balanceOf(deployer.address);
   const finalQuoteSupply = await quoteToken.totalSupply();
   
   console.log("ClearingHouse BaseToken 最终余额:", finalBaseBalance.toString());
-  console.log("部署者 BaseToken 最终余额:", finalBaseBalance1.toString());
+  // console.log("部署者 BaseToken 最终余额:", finalBaseBalance1.toString());
   console.log("QuoteToken 最终总供应量:", finalQuoteSupply.toString());
   
   console.log("BaseToken 余额检查:", finalBaseBalance.eq(maxUint256) ? "✅ 通过" : "❌ 失败");
-  console.log("BaseToken 余额检查:", finalBaseBalance1.eq(maxUint256) ? "✅ 通过" : "❌ 失败");
+  // console.log("BaseToken 余额检查:", finalBaseBalance1.eq(maxUint256) ? "✅ 通过" : "❌ 失败");
   console.log("QuoteToken 供应量检查:", finalQuoteSupply.eq(maxUint256) ? "✅ 通过" : "❌ 失败");
 
   return finalBaseBalance.eq(maxUint256) && finalQuoteSupply.eq(maxUint256);

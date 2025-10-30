@@ -7,12 +7,12 @@ async function main() {
 
   // 部署参数
   const clearingHouseConfigArg = "0x2D0F2F30E47918be3D99dF88983251DA221063DE";
-  const vaultArg = "0x2daD334f3ed5156f372310457Ecf34355B71B215";
-  const quoteTokenArg = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E";
+  const vaultArg = "0xf12285fF19c58bD751dA4f604ebefc0C9Df00A10";
+  const quoteTokenArg = "0xE3E009ADb11434B3fb9acfb5Cb8a30cc94E52cdE";
   const uniV3FactoryArg = "0xCbaec1555707dFAff3303ed6123Db16Eb67F1791";
-  const exchangeArg = "0x891b4cb8743E3Ae419226068408dD00b225Cb46A";
-  const accountBalanceArg = "0x347AAe8b046f4a75c1DE19733C5aef2baBe1fF4B";
-  const insuranceFundArg = "0xa6fDD6AC6c52e02831962C7f37C092Be666C2A3B";
+  const exchangeArg = "0x163F449C0F4537fB0a99C8d28Fb5d99B6B7F09B2";
+  const accountBalanceArg = "0xC6A89EFcC84a32376E9350D8467A48234657fb9a";
+  const insuranceFundArg = "0x0adB0e5c9C2aFaE2D8DEf8C32EF3C51383e15E26";
 
   // 获取网络信息
   const network = await ethers.provider.getNetwork();

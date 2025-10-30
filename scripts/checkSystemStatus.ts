@@ -6,9 +6,9 @@ async function checkSystemStatus() {
 
   const [deployer] = await ethers.getSigners();
   const userAddress = "0x7c6332D587B13E38A677f1556809301D5A2E1B60";
-  const baseTokenAddress = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
-  const marketRegistryAddress = "0x91F83B0351b89194366a9b6986EE7887e6F7A0c5";
+  const baseTokenAddress = "0x57e6345d14a30A554806b254D161A1694eb3bD83";
+  const clearingHouseAddress = "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf";
+  const marketRegistryAddress = "0xA642F92c7Cdc362e376487D0519d0752Ee6CD183";
 
   const BaseToken = await ethers.getContractFactory("BaseToken");
   const baseToken = BaseToken.attach(baseTokenAddress);

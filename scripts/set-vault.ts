@@ -11,10 +11,10 @@ async function main() {
   // }
 
   // const deployment = JSON.parse(fs.readFileSync(deploymentFile, "utf8"));
-  const insuranceFundAddress = "0xa6fDD6AC6c52e02831962C7f37C092Be666C2A3B";
+  const insuranceFundAddress = "0x0adB0e5c9C2aFaE2D8DEf8C32EF3C51383e15E26";
 
   // 🔥 在这里填入你的 Vault 地址
-  const VAULT_ADDRESS = "0x2daD334f3ed5156f372310457Ecf34355B71B215"; // 替换为实际的 Vault 地址
+  const VAULT_ADDRESS = "0xf12285fF19c58bD751dA4f604ebefc0C9Df00A10"; // 替换为实际的 Vault 地址
 
   // if (VAULT_ADDRESS === "0x2EE8E5374a8A89f4B3B98018703F6d131B1de013") {
   //   console.error("❌ Please set the VAULT_ADDRESS in the script");

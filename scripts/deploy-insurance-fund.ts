@@ -4,7 +4,7 @@ import * as path from "path";
 
 // 保险基金配置 - 只需要结算代币地址
 const INSURANCE_FUND_CONFIG = {
-  SETTLEMENT_TOKEN: "0x945EC0dDA06834dD592Ad246e07B47f025B8611E", // Sepolia TKA
+  SETTLEMENT_TOKEN: "0xE3E009ADb11434B3fb9acfb5Cb8a30cc94E52cdE",
 };
 
 async function main() {

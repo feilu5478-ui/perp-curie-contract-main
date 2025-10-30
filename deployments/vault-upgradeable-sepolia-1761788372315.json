@@ -1,0 +1,29 @@
+{
+  "network": {
+    "name": "sepolia",
+    "chainId": 11155111
+  },
+  "timestamp": "2025-10-30T01:39:32.102Z",
+  "deploymentType": "upgradeable",
+  "contracts": {
+    "vault": {
+      "proxy": "0xf12285fF19c58bD751dA4f604ebefc0C9Df00A10",
+      "implementation": "0x39b23bDA15EB178239E9d88CA5066635D26f55D1",
+      "admin": "0x49CDFF5760D7c428e7A60d9f2714aB9FE9f2B5fE"
+    },
+    "dependencies": {
+      "insuranceFund": "0x0adB0e5c9C2aFaE2D8DEf8C32EF3C51383e15E26",
+      "clearingHouseConfig": "0x2D0F2F30E47918be3D99dF88983251DA221063DE",
+      "accountBalance": "0xC6A89EFcC84a32376E9350D8467A48234657fb9a",
+      "exchange": "0x163F449C0F4537fB0a99C8d28Fb5d99B6B7F09B2"
+    }
+  },
+  "config": {
+    "insuranceFund": "0x0adB0e5c9C2aFaE2D8DEf8C32EF3C51383e15E26",
+    "clearingHouseConfig": "0x2D0F2F30E47918be3D99dF88983251DA221063DE",
+    "accountBalance": "0xC6A89EFcC84a32376E9350D8467A48234657fb9a",
+    "exchange": "0x163F449C0F4537fB0a99C8d28Fb5d99B6B7F09B2"
+  },
+  "deployer": "0x7c6332D587B13E38A677f1556809301D5A2E1B60",
+  "note": "可升级部署 - 使用代理模式"
+}

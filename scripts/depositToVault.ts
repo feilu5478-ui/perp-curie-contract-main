@@ -5,8 +5,8 @@ async function main() {
   console.log("开始向 Vault 合约存款...");
 
   // 合约地址 - 替换为实际地址
-  const vaultAddress = "0x2daD334f3ed5156f372310457Ecf34355B71B215"; // 你的 Vault 合约地址
-  const quoteTokenAddress = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E"; // QuoteToken 地址
+  const vaultAddress = "0xf12285fF19c58bD751dA4f604ebefc0C9Df00A10"; // 你的 Vault 合约地址
+  const quoteTokenAddress = "0xE3E009ADb11434B3fb9acfb5Cb8a30cc94E52cdE"; // QuoteToken 地址
   
   // 存款金额 - 根据你的需求调整
   const depositAmount = ethers.utils.parseUnits("100000", 18); // 存入 1000 个 QuoteToken

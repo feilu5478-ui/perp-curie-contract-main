@@ -5,7 +5,7 @@ async function main() {
   console.log("开始部署 OrderBook 合约（不可升级模式）...");
 
   // 配置参数
-  const MARKET_REGISTRY = "0x3dD1c05c4BFb66dAD706325026237776A961FBcc";
+  const MARKET_REGISTRY = "0xA642F92c7Cdc362e376487D0519d0752Ee6CD183";
 
   console.log("使用参数:");
   console.log("MarketRegistry:", MARKET_REGISTRY);

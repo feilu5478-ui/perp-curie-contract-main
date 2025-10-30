@@ -7,11 +7,11 @@ async function initializeFullSystem() {
   const [deployer] = await ethers.getSigners();
   
   // 合约地址
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
-  const exchangeAddress = "0x891b4cb8743E3Ae419226068408dD00b225Cb46A"; // 你的 Exchange 地址
-  const orderBookAddress = "0x269D854FF25dA67Cbe409820c742EB4600f0Cc43"; // 你的 OrderBook 地址
-  const accountBalanceAddress = "0x347AAe8b046f4a75c1DE19733C5aef2baBe1fF4B"; // 你的 AccountBalance 地址
-  const marketRegistryAddress = "0x91F83B0351b89194366a9b6986EE7887e6F7A0c5";
+  const clearingHouseAddress = "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf";
+  const exchangeAddress = "0x163F449C0F4537fB0a99C8d28Fb5d99B6B7F09B2"; // 你的 Exchange 地址
+  const orderBookAddress = "0x02f48aDD96235156ed24F84B19d9DF3a714b555d"; // 你的 OrderBook 地址
+  const accountBalanceAddress = "0xC6A89EFcC84a32376E9350D8467A48234657fb9a"; // 你的 AccountBalance 地址
+  const marketRegistryAddress = "0xA642F92c7Cdc362e376487D0519d0752Ee6CD183";
 
   // 1. 设置所有依赖合约的 ClearingHouse 地址
   console.log("1. 设置依赖合约的 ClearingHouse 地址...");
@@ -28,21 +28,21 @@ async function initializeFullSystem() {
   const MarketRegistry = await ethers.getContractFactory("MarketRegistry");
   const marketRegistry = MarketRegistry.attach(marketRegistryAddress);
   
-//   // 设置 Exchange
-//   await exchange.setClearingHouse(clearingHouseAddress);
-//   console.log("✅ Exchange ClearingHouse 设置完成");
+  // 设置 Exchange
+  await exchange.setClearingHouse(clearingHouseAddress);
+  console.log("✅ Exchange ClearingHouse 设置完成");
   
-//   // 设置 OrderBook
-//   await orderBook.setClearingHouse(clearingHouseAddress);
-//   console.log("✅ OrderBook ClearingHouse 设置完成");
+  // 设置 OrderBook
+  await orderBook.setClearingHouse(clearingHouseAddress);
+  console.log("✅ OrderBook ClearingHouse 设置完成");
   
   // 设置 AccountBalance
   await accountBalance.setClearingHouse(clearingHouseAddress, { gasLimit: 500000 });
   console.log("✅ AccountBalance ClearingHouse 设置完成");
 
   // 2. 设置 MarketRegistry 的 ClearingHouse
-//   await marketRegistry.setClearingHouse(clearingHouseAddress);
-//   console.log("✅ MarketRegistry ClearingHouse 设置完成");
+  await marketRegistry.setClearingHouse(clearingHouseAddress);
+  console.log("✅ MarketRegistry ClearingHouse 设置完成");
 
   // 3. 验证所有配置
   console.log("\n3. 验证所有配置...");

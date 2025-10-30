@@ -152,18 +152,18 @@ import { ethers } from "hardhat";
 
 async function main() {
   const [signer] = await ethers.getSigners();
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
-  const baseToken = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e"; // vETH
-  const quoteToken = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E"; // vUSDC
+  const clearingHouseAddress = "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf";
+  const baseToken = "0x57e6345d14a30A554806b254D161A1694eb3bD83"; // vETH
+  const quoteToken = "0xE3E009ADb11434B3fb9acfb5Cb8a30cc94E52cdE"; // vUSDC
 
   const ClearingHouse = await ethers.getContractFactory("ClearingHouse");
   const clearingHouse = ClearingHouse.attach(clearingHouseAddress).connect(signer);
 
   // 计算 tick（假设价格范围 1500-2500 USDC/ETH）
-  const lowerTick = -887220; // 调整为实际 tick (使用 Uniswap tick spacing)
-  const upperTick = 887220;
-  const baseAmount = ethers.utils.parseUnits("1", 18); // 1 vETH
-  const quoteAmount = ethers.utils.parseUnits("4017", 18); // 2000 vUSDC
+  const lowerTick = 81940; // 调整为实际 tick (使用 Uniswap tick spacing)
+  const upperTick = 83940;
+  const baseAmount = ethers.utils.parseUnits("20", 18); // 1 vETH
+  const quoteAmount = ethers.utils.parseUnits("80000", 18); // 2000 vUSDC
   const minBase = 0; // 最小预期
   const minQuote = 0;
   const deadline = Math.floor(Date.now() / 1000) + 3600;
@@ -179,11 +179,11 @@ async function main() {
     useTakerBalance: false,
     deadline: deadline
   };
-
+  console.log("base金额:", baseAmount.toString());
   console.log("添加流动性参数:", params);
 
   try {
-    const tx = await clearingHouse.addLiquidity(params, { gasLimit: 1000000 });
+    const tx = await clearingHouse.addLiquidity(params, { gasLimit: 10000000 });
     console.log("交易哈希:", tx.hash);
     const receipt = await tx.wait();
     console.log("交易确认，区块:", receipt.blockNumber);

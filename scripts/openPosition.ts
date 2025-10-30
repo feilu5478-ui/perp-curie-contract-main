@@ -4,10 +4,10 @@ async function main() {
   console.log("开始调用 ClearingHouse openPosition 函数...");
 
   // 合约地址 - 替换为实际部署的 ClearingHouse 地址
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
+  const clearingHouseAddress = "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf";
   
   // 基础代币地址
-  const baseToken = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
+  const baseToken = "0x57e6345d14a30A554806b254D161A1694eb3bD83";
   
   // 获取签名器
   const [signer] = await ethers.getSigners();
@@ -43,7 +43,7 @@ async function main() {
   try {
     // 调用 openPosition 函数
     console.log("发送开仓交易...");
-    const tx = await clearingHouse.connect(signer).openPosition(openPositionParams, { gasLimit: 500000 });
+    const tx = await clearingHouse.connect(signer).openPosition(openPositionParams, { gasLimit: 15000000 });
     
     console.log("交易已发送，哈希:", tx.hash);
     

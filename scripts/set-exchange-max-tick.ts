@@ -3,8 +3,8 @@ import { ethers } from "hardhat";
 
 async function main() {
   // 配置参数 - 需要替换为实际地址
-  const EXCHANGE_ADDRESS = "0x891b4cb8743E3Ae419226068408dD00b225Cb46A";
-  const BASE_TOKEN = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e"; // 例如 Quote Token 地址
+  const EXCHANGE_ADDRESS = "0x163F449C0F4537fB0a99C8d28Fb5d99B6B7F09B2";
+  const BASE_TOKEN = "0x57e6345d14a30A554806b254D161A1694eb3bD83"; // 例如 Quote Token 地址
   const MAX_TICK_CROSSED = 1000; // 设置合适的值
 
   console.log("设置 Exchange 的最大 Tick 跨度...");
@@ -37,7 +37,7 @@ async function main() {
 
   // 设置最大 Tick 跨度
   console.log("\n正在设置最大 Tick 跨度...");
-  const tx = await exchange.setMaxTickCrossedWithinBlock(BASE_TOKEN, MAX_TICK_CROSSED);
+  const tx = await exchange.setMaxTickCrossedWithinBlock(BASE_TOKEN, MAX_TICK_CROSSED, { gasLimit: 500000 });
   const receipt = await tx.wait();
 
   console.log("✓ 最大 Tick 跨度设置成功");

@@ -3,8 +3,8 @@ import { ethers } from "hardhat";
 
 async function main() {
   // 配置参数 - 需要替换为实际地址
-  const ORDER_BOOK_ADDRESS = "0x269D854FF25dA67Cbe409820c742EB4600f0Cc43";
-  const EXCHANGE_ADDRESS = "0x891b4cb8743E3Ae419226068408dD00b225Cb46A";
+  const ORDER_BOOK_ADDRESS = "0x02f48aDD96235156ed24F84B19d9DF3a714b555d";
+  const EXCHANGE_ADDRESS = "0x163F449C0F4537fB0a99C8d28Fb5d99B6B7F09B2";
 
   console.log("设置 OrderBook 的 Exchange 地址...");
   console.log("OrderBook 地址:", ORDER_BOOK_ADDRESS);
