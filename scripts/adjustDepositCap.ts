@@ -1,11 +1,11 @@
 // scripts/adjustDepositCap.ts
+import { parseUnits } from "ethers/lib/utils";
 import { ethers } from "hardhat";
-
 async function main() {
   console.log("=== 调整存款上限 ===");
 
   const [signer] = await ethers.getSigners();
-  const clearingHouseConfigAddress = "0x2D0F2F30E47918be3D99dF88983251DA221063DE";
+  const clearingHouseConfigAddress = "0x9199f6848b189024807987Ee6Ab45EC905856B52";
 
   const ClearingHouseConfig = await ethers.getContractFactory("ClearingHouseConfig");
   const clearingHouseConfig = ClearingHouseConfig.attach(clearingHouseConfigAddress);
@@ -13,6 +13,10 @@ async function main() {
   // 检查当前上限
   const currentCap = await clearingHouseConfig.getSettlementTokenBalanceCap();
   console.log("当前结算代币余额上限:", ethers.utils.formatEther(currentCap));
+
+  const USDC_DECIMALS = 6;
+  // const UNI_FEE_TIER = 10000; // 1%
+  const SETTLEMENT_TOKEN_BALANCE_CAP = parseUnits("10000000", USDC_DECIMALS);
 
   // 检查是否有权限修改
   try {
@@ -22,10 +26,10 @@ async function main() {
 
     if (owner.toLowerCase() === signer.address.toLowerCase()) {
       // 有权限，可以修改上限
-      const newCap = ethers.utils.parseEther("10000000"); // 1000万
+      const newCap = ethers.utils.parseEther("10000000");
       console.log(`设置新的上限: ${ethers.utils.formatEther(newCap)}`);
 
-      const tx = await clearingHouseConfig.setSettlementTokenBalanceCap(newCap);
+      const tx = await clearingHouseConfig.setSettlementTokenBalanceCap(SETTLEMENT_TOKEN_BALANCE_CAP);
       await tx.wait();
       
       console.log("✅ 存款上限更新成功");

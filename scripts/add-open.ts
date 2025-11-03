@@ -51,11 +51,11 @@ async function main() {
   
   // 授权Vault使用USDC
   console.log("授权Vault使用taker的USDC...");
-  await usdc.connect(deployer).approve(vault.address, collateralAmount);
+  // await usdc.connect(deployer).approve(vault.address, collateralAmount);
 
   // 存款到金库
   console.log("Taker存款到金库...");
-  await vault.connect(deployer).deposit(usdc.address, parseUnits("1000", 6));
+  // await vault.connect(deployer).deposit(usdc.address, parseUnits("1000", 6), { gasLimit: 500000 });
   console.log("Taker存款完成");
 
   console.log("\n=== 5. 开仓操作 ===");
@@ -72,11 +72,11 @@ async function main() {
     isBaseToQuote: false,      // false = 用Quote买Base (开多)
     isExactInput: true,        // true = 精确输入Quote数量
     oppositeAmountBound: 0,    // 0 = 不设置滑点保护
-    amount: parseEther("100"), // 用100个QuoteToken买BaseToken
+    amount: parseEther("2000"), // 用100个QuoteToken买BaseToken
     sqrtPriceLimitX96: 0,      // 0 = 不限制价格
     deadline: ethers.constants.MaxUint256,
     referralCode: ethers.constants.HashZero
-  });
+  }, { gasLimit: 1000000 });
 
   const longReceipt = await openLongTx.wait();
   console.log("开多头仓位成功！交易哈希:", longReceipt.transactionHash);

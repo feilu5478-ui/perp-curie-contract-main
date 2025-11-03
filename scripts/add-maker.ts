@@ -43,18 +43,18 @@ async function main() {
   const collateralAmount = parseUnits("1000000", 6); // 1,000,000 USDC
   
   console.log("为maker铸造USDC...");
-//   await usdc.connect(deployer).mint(deployer.address, collateralAmount);
+  // await usdc.connect(deployer).mint(deployer.address, collateralAmount);
   console.log("Maker USDC余额:", (await usdc.balanceOf(deployer.address)).toString());
 
   console.log("\n=== 2. 存款到金库 ===");
   
   // 授权Vault使用USDC
   console.log("授权Vault使用maker的USDC...");
-//   await usdc.connect(deployer).approve(vault.address, collateralAmount);
+  // await usdc.connect(deployer).approve(vault.address, collateralAmount);
 
   // 存款到金库
   console.log("Maker存款到金库...");
-//   await vault.connect(deployer).deposit(usdc.address, parseUnits("1000000", 6), {gasLimit: 1000000});
+  // await vault.connect(deployer).deposit(usdc.address, parseUnits("1000000", 6), {gasLimit: 1000000});
   console.log("Maker存款完成");
   const settlementToken = await vault.getSettlementToken();
   console.log("settlementToken为", settlementToken);
@@ -78,8 +78,8 @@ async function main() {
   console.log("添加流动性到池子...");
   const addLiquidityTx = await clearingHouse.connect(deployer).addLiquidity({
     baseToken: baseToken.address,
-    base: parseEther("65.943787"),    // 约66个BaseToken
-    quote: parseEther("10000"),       // 10,000个QuoteToken
+    base: parseEther("650.943787"),    // 约66个BaseToken
+    quote: parseEther("100000"),       // 10,000个QuoteToken
     lowerTick: lowerTick,
     upperTick: upperTick,
     minBase: 0,

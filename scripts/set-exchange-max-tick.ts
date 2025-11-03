@@ -3,8 +3,8 @@ import { ethers } from "hardhat";
 
 async function main() {
   // 配置参数 - 需要替换为实际地址
-  const EXCHANGE_ADDRESS = "0x163F449C0F4537fB0a99C8d28Fb5d99B6B7F09B2";
-  const BASE_TOKEN = "0x57e6345d14a30A554806b254D161A1694eb3bD83"; // 例如 Quote Token 地址
+  const EXCHANGE_ADDRESS = "0xc6325545732ab188084BbD35A495c0C42b148BD4";
+  const BASE_TOKEN = "0x23383BA49A2D72fD3b617751A0efD3e7Df58Bf06"; // 例如 Quote Token 地址
   const MAX_TICK_CROSSED = 1000; // 设置合适的值
 
   console.log("设置 Exchange 的最大 Tick 跨度...");
