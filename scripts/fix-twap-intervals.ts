@@ -14,7 +14,7 @@ async function main() {
   console.log("当前 TWAP 间隔:", (await clearingHouseConfig.getTwapInterval()).toString());
   
   // 临时设置为较小的值用于测试
-  const tempTwapInterval = 0;
+  const tempTwapInterval = 1;
   
 //   await clearingHouseConfig.setTwapInterval(tempTwapInterval);
 //   console.log("TWAP 间隔已设置为:", tempTwapInterval, "秒");

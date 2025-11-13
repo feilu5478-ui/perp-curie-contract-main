@@ -48,7 +48,7 @@ async function main() {
   // 部署 ChainlinkPriceFeedV3
   // const ChainlinkPriceFeedV3 = await ethers.getContractFactory("ChainlinkPriceFeedV3");
   // const chainlinkPriceFeedV3 = await ChainlinkPriceFeedV3.deploy(
-  //   "0x694AA1769357215DE4FAC081bf1f309aDC325306",
+  //   aggregator.address,
   //   3600, // 超时时间
   //   900, // 15分钟TWAP间隔
   //   {gasLimit: 1000000}

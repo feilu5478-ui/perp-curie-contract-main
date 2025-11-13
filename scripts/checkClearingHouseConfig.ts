@@ -4,7 +4,7 @@ import { ethers } from "hardhat";
 async function checkClearingHouseConfig() {
   console.log("=== 检查 ClearingHouseConfig 设置 ===");
 
-  const clearingHouseConfigAddress = "0x2D0F2F30E47918be3D99dF88983251DA221063DE"; // 需要替换为实际地址
+  const clearingHouseConfigAddress = "0x9199f6848b189024807987Ee6Ab45EC905856B52"; // 需要替换为实际地址
 
   const ClearingHouseConfig = await ethers.getContractFactory("ClearingHouseConfig");
   const config = ClearingHouseConfig.attach(clearingHouseConfigAddress);
