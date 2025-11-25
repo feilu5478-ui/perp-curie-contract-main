@@ -7,8 +7,8 @@ async function main() {
   const [signer] = await ethers.getSigners();
   
   // 合约地址
-  const marketRegistryAddress = "0xA642F92c7Cdc362e376487D0519d0752Ee6CD183";
-  const baseToken = "0x57e6345d14a30A554806b254D161A1694eb3bD83";
+  const marketRegistryAddress = "0x2911377369fA73F97125eF1816Ac6475cADea3b6";
+  const baseToken = "0x14aA73eB98C623C8712c445847873AD0D29BD834";
 
   const MarketRegistry = await ethers.getContractFactory("MarketRegistry");
   const marketRegistry = MarketRegistry.attach(marketRegistryAddress);
@@ -35,7 +35,7 @@ async function addPool(marketRegistry: any, baseToken: string, userAddress: stri
     }
 
     // 添加池子
-    const feeRatio = 500; // 0.05%
+    const feeRatio = 10000; // 0.05%
     console.log(`添加池子: BaseToken=${baseToken}, FeeRatio=${feeRatio}`);
 
     const tx = await marketRegistry.addPool(baseToken, feeRatio, { gasLimit: 500000 });

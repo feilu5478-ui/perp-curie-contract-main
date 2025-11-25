@@ -10,17 +10,17 @@ async function main() {
 
   // 合约地址（使用您部署的地址）
   const contractAddresses = {
-    clearingHouse: "0x065536c3e366F28C4378A7939b4c540670ae4E43",
-    vault: "0xa328b300dfEdf4d2062eC712D6BcC2be1c96bcD0",
-    exchange: "0xc6325545732ab188084BbD35A495c0C42b148BD4",
-    orderBook: "0x8EfE7E3C8153EE8B27d280AF206728FF713d9348",
-    marketRegistry: "0xD0be37F945DdaEBf1Af60F0dE5C78e3A42f1F3cf",
-    accountBalance: "0xD645C301A87255082e74052D449613d2D3A67c15",
-    baseToken: "0x23383BA49A2D72fD3b617751A0efD3e7Df58Bf06",
-    quoteToken: "0xE62CC8B89df2F354D4abB6e3cEFEe2d6fa091f3b",
+    clearingHouse: "0xcdEa7bEF2E550eC317E4FEc80Fc59B00AE271fa3",
+    vault: "0x42F2202120Af3217868fdB356F98d87c3ED0c123",
+    exchange: "0x4EEe99beA14d52515A94463ca4D1d739Ad2a0F5F",
+    orderBook: "0xBD7647440788BE523e7B9740D7f23B17b28c36a0",
+    marketRegistry: "0x2911377369fA73F97125eF1816Ac6475cADea3b6",
+    accountBalance: "0x8Eae24D537b9EC2535EC1F2AB8D1C54F481dC7e1",
+    baseToken: "0x14aA73eB98C623C8712c445847873AD0D29BD834",
+    quoteToken: "0xB736Ce12ee74345600aeDFb9c27B6A8822D4C892",
     usdc: "0x727e7D4CaF9F7D89E8425458A2A1FbF06a35F65e",
     weth: "0x51Fd3eB1325A8d9091Ed32D1412B159e095558b0",
-    pool: "0xc23d25eab268fd2099f5199a0c3f22393ccf9a4f"
+    pool: "0x2d7ad7a7b7021e681b697cdf955169c710c95cb1"
   };
 
   // 获取合约实例
@@ -44,18 +44,18 @@ async function main() {
 
 
   console.log("为taker铸造USDC...");
-//   await usdc.connect(deployer).mint("0x01afA79F7d3F08ccE8221Ce48d0A9D83973a95Ac", collateralAmount, {gasLimit: 500000});
+  // await usdc.connect(deployer).mint("0x01afA79F7d3F08ccE8221Ce48d0A9D83973a95Ac", collateralAmount, {gasLimit: 500000});
   console.log("Taker USDC余额:", (await usdc.balanceOf("0x01afA79F7d3F08ccE8221Ce48d0A9D83973a95Ac")).toString());
 
   console.log("\n=== 2. 存款到金库 ===");
   
   // 授权Vault使用USDC
   console.log("授权Vault使用taker的USDC...");
-  // await usdc.connect(deployer).approve(vault.address, collateralAmount);
+  await usdc.connect(deployer).approve(vault.address, collateralAmount);
 
   // 存款到金库
   console.log("Taker存款到金库...");
-  // await vault.connect(deployer).deposit(usdc.address, parseUnits("1000", 6), { gasLimit: 500000 });
+  await vault.connect(deployer).deposit(usdc.address, parseUnits("1000", 6), { gasLimit: 500000 });
   console.log("Taker存款完成");
 
   console.log("\n=== 5. 开仓操作 ===");

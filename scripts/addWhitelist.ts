@@ -32,19 +32,19 @@ async function main() {
   const [signer] = await ethers.getSigners();
   
   // 代币地址
-  const baseToken = "0x57e6345d14a30A554806b254D161A1694eb3bD83";
-  const quoteToken = "0xE3E009ADb11434B3fb9acfb5Cb8a30cc94E52cdE";
+  const baseToken = "0x14aA73eB98C623C8712c445847873AD0D29BD834";
+  const quoteToken = "0xB736Ce12ee74345600aeDFb9c27B6A8822D4C892";
   
   // 需要添加到白名单的地址
   const whitelistAddresses = [
-    signer.address, // 你的地址
+    // signer.address, // 你的地址
     "0xc01DdaBBA95E9Cb45C1D7919c0B9f2fb6740c9f4", // Uniswap V3 Position Manager (Sepolia)
     "0x3DDB759BF377A352aA12e319a93B17ffA512Dd69", // Uniswap V3 Swap Router (Sepolia)
     "0xCbaec1555707dFAff3303ed6123Db16Eb67F1791", // Uniswap V3 Factory (Sepolia)
-    "0xf12285fF19c58bD751dA4f604ebefc0C9Df00A10", // 你的 Vault 合约地址
-    "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf", // 你的 ClearingHouse 合约地址
-    "0xA642F92c7Cdc362e376487D0519d0752Ee6CD183", //MarketRegistry地址
-    "0x35907c45f4fcd23d407fdbcf37d54812a56f6534" //uniswap池子地址
+    "0x42F2202120Af3217868fdB356F98d87c3ED0c123", // 你的 Vault 合约地址
+    // "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf", // 你的 ClearingHouse 合约地址
+    "0x2911377369fA73F97125eF1816Ac6475cADea3b6", //MarketRegistry地址
+    // "0x2d7ad7a7b7021e681b697cdf955169c710c95cb1" //uniswap池子地址
   ];
 
   // 获取代币合约

@@ -4,9 +4,9 @@ import { ethers } from "hardhat";
 async function debugAddPoolFailure() {
   console.log("=== 调试 addPool 失败 ===");
 
-  const baseTokenAddress = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
-  const marketRegistryAddress = "0x91F83B0351b89194366a9b6986EE7887e6F7A0c5";
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
+  const baseTokenAddress = "0x14aA73eB98C623C8712c445847873AD0D29BD834";
+  const marketRegistryAddress = "0x2911377369fA73F97125eF1816Ac6475cADea3b6";
+  const clearingHouseAddress = "0xcdEa7bEF2E550eC317E4FEc80Fc59B00AE271fa3";
 
   const BaseToken = await ethers.getContractFactory("BaseToken");
   const baseToken = BaseToken.attach(baseTokenAddress);
@@ -79,7 +79,7 @@ async function debugAddPoolFailure() {
   // 5. 检查 Uniswap 池子
   console.log("\n5. 检查 Uniswap 池子...");
   
-  const feeRatio = 500;
+  const feeRatio = 10000;
   
   // 使用 Uniswap V3 Factory 检查池子
   const UniswapV3Factory = await ethers.getContractAt(

@@ -1,6 +1,9 @@
 // deploy-perp-v2.ts
 import { parseUnits } from "ethers/lib/utils";
+// import { parseUnits, parseEther } from "ethers/lib/utils";
 import { ethers } from "hardhat";
+// import { encodePriceSqrt } from "../test/shared/utilities";
+
 async function main() {
   const [deployer] = await ethers.getSigners();
   console.log("Deploying contracts with account:", deployer.address);
@@ -68,8 +71,8 @@ async function main() {
 
   // // 部署 PriceFeedDispatcher
   const PriceFeedDispatcher = await ethers.getContractFactory("PriceFeedDispatcher");
-  const priceFeedDispatcher = PriceFeedDispatcher.attach("0xd952F3A1638445eda8CA25D093a3FB95b9A10947");
-  // const priceFeedDispatcher = await PriceFeedDispatcher.deploy(mockPriceFeed.address);
+  const priceFeedDispatcher = PriceFeedDispatcher.attach("0x0AF5C70D0eb85e40C1E6D670778A35A5b0ff8CE9");
+  // const priceFeedDispatcher = await PriceFeedDispatcher.deploy("0x4aB0123054Cc53909818d4bBC356c14A29fcd65B");
   // await priceFeedDispatcher.deployed();
   console.log("PriceFeedDispatcher deployed to:", priceFeedDispatcher.address);
 
@@ -78,18 +81,18 @@ async function main() {
 
   // 首先部署 QuoteToken
   const QuoteToken = await ethers.getContractFactory("QuoteToken");
-  const quoteToken = QuoteToken.attach("0xE62CC8B89df2F354D4abB6e3cEFEe2d6fa091f3b");
+  const quoteToken = QuoteToken.attach("0xB736Ce12ee74345600aeDFb9c27B6A8822D4C892");
   // const quoteToken = await QuoteToken.deploy();
   // await quoteToken.deployed();
-  // await quoteToken.initialize("Perp Quote", "PQUOTE");
+  // await quoteToken.initialize("vUSDC", "vUSDC");
   console.log("QuoteToken deployed to:", quoteToken.address);
 
   // 然后部署 BaseToken
   const BaseToken = await ethers.getContractFactory("BaseToken");
-  const baseToken = BaseToken.attach("0x23383BA49A2D72fD3b617751A0efD3e7Df58Bf06");
+  const baseToken = BaseToken.attach("0x14aA73eB98C623C8712c445847873AD0D29BD834");
   // const baseToken = await BaseToken.deploy();
   // await baseToken.deployed();
-  // await baseToken.initialize("Ether", "ETH", priceFeedDispatcher.address);
+  // await baseToken.initialize("vETH", "vETH", priceFeedDispatcher.address);
   console.log("BaseToken deployed to:", baseToken.address);
 
   // 检查地址顺序是否符合 Uniswap 要求 (token0 < token1)
@@ -124,7 +127,7 @@ async function main() {
 
   // 6. 部署市场注册表
   const MarketRegistry = await ethers.getContractFactory("MarketRegistry");
-  const marketRegistry = MarketRegistry.attach("0xD0be37F945DdaEBf1Af60F0dE5C78e3A42f1F3cf");
+  const marketRegistry = MarketRegistry.attach("0x2911377369fA73F97125eF1816Ac6475cADea3b6");
   // const marketRegistry = await MarketRegistry.deploy();
   // await marketRegistry.deployed();
   // await marketRegistry.initialize(uniV3Factory.address, quoteToken.address);
@@ -132,7 +135,7 @@ async function main() {
 
   // 7. 部署订单簿
   const OrderBook = await ethers.getContractFactory("OrderBook");
-  const orderBook = OrderBook.attach("0x8EfE7E3C8153EE8B27d280AF206728FF713d9348");
+  const orderBook = OrderBook.attach("0xBD7647440788BE523e7B9740D7f23B17b28c36a0");
   // const orderBook = await OrderBook.deploy();
   // await orderBook.deployed();
   // await orderBook.initialize(marketRegistry.address);
@@ -140,7 +143,7 @@ async function main() {
 
   // 8. 部署交易所
   const Exchange = await ethers.getContractFactory("Exchange");
-  const exchange = Exchange.attach("0xc6325545732ab188084BbD35A495c0C42b148BD4");
+  const exchange = Exchange.attach("0x4EEe99beA14d52515A94463ca4D1d739Ad2a0F5F");
   // const exchange = await Exchange.deploy();
   // await exchange.deployed();
   // await exchange.initialize(marketRegistry.address, orderBook.address, clearingHouseConfig.address);
@@ -148,7 +151,7 @@ async function main() {
 
   // 9. 部署账户余额管理
   const AccountBalance = await ethers.getContractFactory("AccountBalance");
-  const accountBalance = AccountBalance.attach("0xD645C301A87255082e74052D449613d2D3A67c15");
+  const accountBalance = AccountBalance.attach("0x8Eae24D537b9EC2535EC1F2AB8D1C54F481dC7e1");
   // const accountBalance = await AccountBalance.deploy();
   // await accountBalance.deployed();
   // await accountBalance.initialize(clearingHouseConfig.address, orderBook.address);
@@ -156,7 +159,7 @@ async function main() {
 
   // 10. 部署保险基金
   const InsuranceFund = await ethers.getContractFactory("InsuranceFund");
-  const insuranceFund = InsuranceFund.attach("0xEa893901a57543e08787afD5806c32A721C6DadC");
+  const insuranceFund = InsuranceFund.attach("0xc37F218018F024CdDa1A5d97a4EeEd7c062D7D0a");
   // const insuranceFund = await InsuranceFund.deploy();
   // await insuranceFund.deployed();
   // await insuranceFund.initialize(usdc.address);
@@ -164,7 +167,7 @@ async function main() {
 
   // 11. 部署金库
   const Vault = await ethers.getContractFactory("Vault");
-  const vault = Vault.attach("0xa328b300dfEdf4d2062eC712D6BcC2be1c96bcD0");
+  const vault = Vault.attach("0x42F2202120Af3217868fdB356F98d87c3ED0c123");
   // const vault = await Vault.deploy();
   // await vault.deployed();
   // await vault.initialize(
@@ -177,7 +180,7 @@ async function main() {
 
   // 12. 部署抵押品管理器
   const CollateralManager = await ethers.getContractFactory("CollateralManager");
-  const collateralManager = CollateralManager.attach("0x84e1D14Defc6B18bc72b9d5A530c745f400d9Fa0");
+  const collateralManager = CollateralManager.attach("0x4f6300619e0a0c2e7af6cb67F024f28955B844d9");
   // const collateralManager = await CollateralManager.deploy();
   // await collateralManager.deployed();
   // await collateralManager.initialize(
@@ -195,7 +198,7 @@ async function main() {
 
   // 13. 部署委托批准
   const DelegateApproval = await ethers.getContractFactory("DelegateApproval");
-  const delegateApproval = DelegateApproval.attach("0x7b90d369133dC0C65aCcFA5eF20714b3Bc22fEd6");
+  const delegateApproval = DelegateApproval.attach("0xd5B7D8C4a14875E619c23CcE1f2990aF1467F444");
   // const delegateApproval = await DelegateApproval.deploy();
   // await delegateApproval.deployed();
   // await delegateApproval.initialize();
@@ -203,7 +206,7 @@ async function main() {
 
   // 14. 部署清算所主合约
   const ClearingHouse = await ethers.getContractFactory("ClearingHouse");
-  const clearingHouse = ClearingHouse.attach("0x065536c3e366F28C4378A7939b4c540670ae4E43");
+  const clearingHouse = ClearingHouse.attach("0xcdEa7bEF2E550eC317E4FEc80Fc59B00AE271fa3");
   // const clearingHouse = await ClearingHouse.deploy();
   // await clearingHouse.deployed();
   // await clearingHouse.initialize(
@@ -281,14 +284,14 @@ async function main() {
   // 在 Uniswap V3 中创建池子
   // await uniV3Factory.createPool(baseToken.address, quoteToken.address, UNI_FEE_TIER);
   // const poolAddress = await uniV3Factory.getPool(baseToken.address, quoteToken.address, UNI_FEE_TIER);
-  const poolAddress = "0xc23d25eab268fd2099f5199a0c3f22393ccf9a4f";
+  const poolAddress = "0x2d7ad7a7b7021e681b697cdf955169c710c95cb1";
   console.log("Uniswap V3 Pool created at:", poolAddress);
 
   // 获取池子合约实例并初始化价格
   // const IUniswapV3Pool = await ethers.getContractFactory("UniswapV3Pool");
   // const pool = IUniswapV3Pool.attach(poolAddress);
-  // const initPrice = "151.373306858723226652"
-  // 初始化池子
+  // const initPrice = "2827.707619"
+  // // 初始化池子
   // await pool.initialize(encodePriceSqrt(initPrice,"1"));
   console.log("Pool initialized successfully");
 
@@ -313,7 +316,7 @@ async function main() {
   console.log("Tokens minted to ClearingHouse");
 
   // 在市场注册表中添加池子
-  await marketRegistry.addPool(baseToken.address, UNI_FEE_TIER, {gasLimit: 1000000});
+  await marketRegistry.addPool(baseToken.address, UNI_FEE_TIER);
   console.log("Pool added to MarketRegistry");
 
   // 设置市场注册表的费用管理员

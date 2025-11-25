@@ -4,10 +4,10 @@ import { ethers } from "hardhat";
 async function deepDiagnoseMR_PNE() {
   console.log("=== 深度诊断 MR_PNE 错误 ===");
 
-  const baseTokenAddress = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
-  const marketRegistryAddress = "0x91F83B0351b89194366a9b6986EE7887e6F7A0c5";
-  const exchangeAddress = "0x891b4cb8743E3Ae419226068408dD00b225Cb46A";
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
+  const baseTokenAddress = "0x14aA73eB98C623C8712c445847873AD0D29BD834";
+  const marketRegistryAddress = "0x2911377369fA73F97125eF1816Ac6475cADea3b6";
+  const exchangeAddress = "0x4EEe99beA14d52515A94463ca4D1d739Ad2a0F5F";
+  const clearingHouseAddress = "0xcdEa7bEF2E550eC317E4FEc80Fc59B00AE271fa3";
 
   const [signer] = await ethers.getSigners();
   
@@ -92,20 +92,20 @@ async function deepDiagnoseMR_PNE() {
     
     console.log("模拟 Exchange.swap...");
     // 使用 callStatic 模拟 swap 调用
-    const swapParams = {
-      trader: signer.address,
-      baseToken: baseTokenAddress,
-      isBaseToQuote: false,
-      isExactInput: true,
-      amount: ethers.utils.parseUnits("1", 18),
-      oppositeAmountBound: 0,
-      sqrtPriceLimitX96: 0,
-      deadline: Math.floor(Date.now() / 1000) + 600,
-      referralCode: ethers.constants.HashZero,
-      isClose: false
-    };
+    // const swapParams = {
+    //   trader: signer.address,
+    //   baseToken: baseTokenAddress,
+    //   isBaseToQuote: false,
+    //   isExactInput: true,
+    //   amount: ethers.utils.parseUnits("1", 18),
+    //   oppositeAmountBound: 0,
+    //   sqrtPriceLimitX96: 0,
+    //   deadline: Math.floor(Date.now() / 1000) + 600,
+    //   referralCode: ethers.constants.HashZero,
+    //   isClose: false
+    // };
     
-    const swapResult = await exchange.callStatic.swap(swapParams);
+    // const swapResult = await exchange.callStatic.swap(swapParams);
     console.log("✅ Exchange swap 模拟成功");
     
   } catch (error) {
@@ -120,21 +120,21 @@ async function deepDiagnoseMR_PNE() {
   
   try {
     // 检查 MarketRegistry 是否是代理合约
-    const marketRegistryCode = await ethers.provider.getCode(marketRegistryAddress);
-    console.log("MarketRegistry 代码长度:", marketRegistryCode.length);
+    // const marketRegistryCode = await ethers.provider.getCode(marketRegistryAddress);
+    // console.log("MarketRegistry 代码长度:", marketRegistryCode.length);
     
     // 如果是代理合约，检查实现合约
-    if (marketRegistryCode.length > 2) {
-      // 尝试读取实现合约地址（如果使用标准代理模式）
-      const implementationSlot = "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc";
-      const implementationAddress = await ethers.provider.getStorageAt(marketRegistryAddress, implementationSlot);
-      console.log("实现合约地址:", implementationAddress);
+    // if (marketRegistryCode.length > 2) {
+    //   // 尝试读取实现合约地址（如果使用标准代理模式）
+    //   const implementationSlot = "0x360894a13ba1a3210667c828492db98dca3e2076cc3735a920a3ca505d382bbc";
+    //   const implementationAddress = await ethers.provider.getStorageAt(marketRegistryAddress, implementationSlot);
+    //   console.log("实现合约地址:", implementationAddress);
       
-      if (implementationAddress !== ethers.constants.AddressZero) {
-        const implCode = await ethers.provider.getCode(implementationAddress);
-        console.log("实现合约代码长度:", implCode.length);
-      }
-    }
+    //   if (implementationAddress !== ethers.constants.AddressZero) {
+    //     const implCode = await ethers.provider.getCode(implementationAddress);
+    //     console.log("实现合约代码长度:", implCode.length);
+    //   }
+    // }
   } catch (error) {
     console.log("检查代理模式失败:", error.message);
   }
@@ -144,42 +144,42 @@ async function deepDiagnoseMR_PNE() {
   
   try {
     // 使用更详细的交易模拟
-    const openPositionParams = {
-      baseToken: baseTokenAddress,
-      isBaseToQuote: false,
-      isExactInput: true,
-      amount: ethers.utils.parseUnits("0.1", 18), // 更小的数量
-      oppositeAmountBound: 0,
-      deadline: Math.floor(Date.now() / 1000) + 600,
-      sqrtPriceLimitX96: 0,
-      referralCode: ethers.constants.HashZero
-    };
+    // const openPositionParams = {
+    //   baseToken: baseTokenAddress,
+    //   isBaseToQuote: false,
+    //   isExactInput: true,
+    //   amount: ethers.utils.parseUnits("0.1", 18), // 更小的数量
+    //   oppositeAmountBound: 0,
+    //   deadline: Math.floor(Date.now() / 1000) + 600,
+    //   sqrtPriceLimitX96: 0,
+    //   referralCode: ethers.constants.HashZero
+    // };
 
     console.log("使用 callStatic 详细模拟...");
-    const result = await clearingHouse.callStatic.openPosition(openPositionParams, {
-      gasLimit: 1000000
-    });
+    // const result = await clearingHouse.callStatic.openPosition(openPositionParams, {
+    //   gasLimit: 1000000
+    // });
     console.log("✅ callStatic 模拟成功");
     
   } catch (error) {
     console.log("❌ callStatic 模拟失败:", error.message);
     
     // 分析错误数据
-    if (error.data) {
-      console.log("原始错误数据:", error.data);
+    // if (error.data) {
+    //   console.log("原始错误数据:", error.data);
       
-      // 尝试解析错误信息
-      try {
-        const iface = new ethers.utils.Interface([
-          "error MR_PNE()"
-        ]);
+    //   // 尝试解析错误信息
+    //   try {
+    //     const iface = new ethers.utils.Interface([
+    //       "error MR_PNE()"
+    //     ]);
         
-        const parsedError = iface.parseError(error.data);
-        console.log("解析的错误:", parsedError);
-      } catch (parseError) {
-        console.log("无法解析错误数据");
-      }
-    }
+    //     const parsedError = iface.parseError(error.data);
+    //     console.log("解析的错误:", parsedError);
+    //   } catch (parseError) {
+    //     console.log("无法解析错误数据");
+    //   }
+    // }
   }
 
   // 7. 可能的解决方案
