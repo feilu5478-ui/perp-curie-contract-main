@@ -1,0 +1,9 @@
+{
+  "network": "sepolia",
+  "timestamp": "2025-10-30T02:16:42.754Z",
+  "proxyAddress": "0xC6dAc2934c24789CB0a1bDa7118a0Bc8367d8Daf",
+  "implementationAddress": "0xCbE7aF10C512cA5567FB4D38e4543966AEE704A2",
+  "adminAddress": "0x49CDFF5760D7c428e7A60d9f2714aB9FE9f2B5fE",
+  "blockNumber": 9519785,
+  "transactionHash": "0xef26ab9c0b2bc8bf165d6ed3a0269b9df57ecca922ac18609a772f6a958220f4"
+}

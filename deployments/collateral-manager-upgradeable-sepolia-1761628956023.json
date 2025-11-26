@@ -1,0 +1,32 @@
+{
+  "network": {
+    "name": "sepolia",
+    "chainId": 11155111
+  },
+  "timestamp": "2025-10-28T05:22:35.793Z",
+  "deploymentType": "upgradeable",
+  "contracts": {
+    "collateralManager": {
+      "proxy": "0x8112A50f57277790eCBA7E1D93B7a4c139B4864E",
+      "implementation": "0xD1Bb4734bb2249B9152fd92255b6CF66318bC4ce",
+      "admin": "0x49CDFF5760D7c428e7A60d9f2714aB9FE9f2B5fE"
+    },
+    "dependencies": {
+      "clearingHouseConfig": "0x2D0F2F30E47918be3D99dF88983251DA221063DE",
+      "vault": "0x2daD334f3ed5156f372310457Ecf34355B71B215"
+    }
+  },
+  "config": {
+    "clearingHouseConfig": "0x2D0F2F30E47918be3D99dF88983251DA221063DE",
+    "vault": "0x2daD334f3ed5156f372310457Ecf34355B71B215",
+    "maxCollateralTokensPerAccount": 10,
+    "debtNonSettlementTokenValueRatio": 500000,
+    "liquidationRatio": 800000,
+    "mmRatioBuffer": 100000,
+    "clInsuranceFundFeeRatio": 100000,
+    "debtThreshold": "1000000000000000000000",
+    "collateralValueDust": "1000000000000000000"
+  },
+  "deployer": "0x7c6332D587B13E38A677f1556809301D5A2E1B60",
+  "note": "可升级部署 - 使用代理模式"
+}

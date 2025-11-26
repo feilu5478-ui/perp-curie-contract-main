@@ -1,0 +1,16 @@
+{
+  "network": {
+    "name": "sepolia",
+    "chainId": 11155111
+  },
+  "timestamp": "2025-10-28T03:26:18.504Z",
+  "deploymentType": "non-upgradeable",
+  "contracts": {
+    "orderBook": "0x269D854FF25dA67Cbe409820c742EB4600f0Cc43"
+  },
+  "config": {
+    "marketRegistry": "0x3dD1c05c4BFb66dAD706325026237776A961FBcc"
+  },
+  "deployer": "0x7c6332D587B13E38A677f1556809301D5A2E1B60",
+  "note": "不可升级部署 - 部署后无法升级合约逻辑"
+}
