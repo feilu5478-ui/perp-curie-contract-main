@@ -7,9 +7,9 @@ async function main() {
   const [signer] = await ethers.getSigners();
   
   // 合约地址
-  const vaultAddress = "0x2daD334f3ed5156f372310457Ecf34355B71B215";
-  const quoteTokenAddress = "0x945EC0dDA06834dD592Ad246e07B47f025B8611E";
-  const clearingHouseConfigAddress = "0x2D0F2F30E47918be3D99dF88983251DA221063DE";
+  const vaultAddress = "0x42F2202120Af3217868fdB356F98d87c3ED0c123";
+  const quoteTokenAddress = "0xB736Ce12ee74345600aeDFb9c27B6A8822D4C892";
+  const clearingHouseConfigAddress = "0x9199f6848b189024807987Ee6Ab45EC905856B52";
 
   const Vault = await ethers.getContractFactory("Vault");
   const vault = Vault.attach(vaultAddress);

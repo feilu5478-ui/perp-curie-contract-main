@@ -1,5 +1,5 @@
-// open-position.ts
-import { parseEther } from "ethers/lib/utils";
+// add-maker.ts
+import { parseEther, parseUnits } from "ethers/lib/utils";
 import { ethers } from "hardhat";
 
 async function main() {
@@ -16,7 +16,8 @@ async function main() {
     orderBook: "0xBD7647440788BE523e7B9740D7f23B17b28c36a0",
     marketRegistry: "0x2911377369fA73F97125eF1816Ac6475cADea3b6",
     accountBalance: "0x8Eae24D537b9EC2535EC1F2AB8D1C54F481dC7e1",
-    baseToken: "0x14aA73eB98C623C8712c445847873AD0D29BD834",
+    baseToken: "0x9efd6d5c81c6e22b822b6877abcf82398269f800",
+    // baseToken: "0x14aA73eB98C623C8712c445847873AD0D29BD834",
     quoteToken: "0xB736Ce12ee74345600aeDFb9c27B6A8822D4C892",
     usdc: "0x727e7D4CaF9F7D89E8425458A2A1FbF06a35F65e",
     weth: "0x51Fd3eB1325A8d9091Ed32D1412B159e095558b0",
@@ -40,7 +41,7 @@ async function main() {
   console.log("\n=== 1. 准备抵押物 ===");
   
   // 为maker铸造USDC
-  // const collateralAmount = parseUnits("1000000", 6); // 1,000,000 USDC
+  const collateralAmount = parseUnits("10000000", 6); // 1,000,000 USDC
   
   console.log("为maker铸造USDC...");
   // await usdc.connect(deployer).mint(deployer.address, collateralAmount);
@@ -54,39 +55,39 @@ async function main() {
 
   // 存款到金库
   console.log("Maker存款到金库...");
-  // await vault.connect(deployer).deposit(usdc.address, parseUnits("1000000", 6), { gasLimit: 500000 });
+  // await vault.connect(deployer).deposit(usdc.address, parseUnits("10000000", 6), { gasLimit: 500000 });
   console.log("Maker存款完成");
   // const settlementToken = await vault.getSettlementToken();
   // console.log("settlementToken为", settlementToken);
 
-  // console.log("4. 验证存款结果...");
-  //   const vaultBalance = await vault.getBalanceByToken(deployer.address, usdc.address);
-  //   console.log("Vault 中的余额:", vaultBalance.toString());
+  console.log("4. 验证存款结果...");
+    const vaultBalance = await vault.getBalanceByToken(deployer.address, usdc.address);
+    console.log("Vault 中的余额:", vaultBalance.toString());
     
-  //   const freeCollateral = await vault.getFreeCollateral(deployer.address);
-  //   console.log("可用抵押品:", freeCollateral.toString());
+    const freeCollateral = await vault.getFreeCollateral(deployer.address);
+    console.log("可用抵押品:", freeCollateral.toString());
     
-  //   const accountValue = await vault.getAccountValue(deployer.address);
-  //   console.log("账户价值:", accountValue.toString());
+    const accountValue = await vault.getAccountValue(deployer.address);
+    console.log("账户价值:", accountValue.toString());
 
   console.log("\n=== 4. 添加流动性 ===");
   
   // 定义流动性范围
-  const lowerTick = 100000;
-  const upperTick = 102000;
+  const lowerTick = 110200; //最小值
+  const upperTick = 127200;// 最大值
   
   console.log("添加流动性到池子...");
   const addLiquidityTx = await clearingHouse.connect(deployer).addLiquidity({
     baseToken: baseToken.address,
     base: parseEther("100"),
-    quote: parseEther("28277"),
+    quote: parseEther("9856129"),
     lowerTick: lowerTick,
     upperTick: upperTick,
     minBase: 0,
     minQuote: 0,
     useTakerBalance: false,
     deadline: ethers.constants.MaxUint256
-  }, {gasLimit: 1500000});
+  }, {gasLimit: 15000000});
 
   const receipt = await addLiquidityTx.wait();
   console.log("流动性添加成功！交易哈希:", receipt.transactionHash);

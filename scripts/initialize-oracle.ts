@@ -5,7 +5,7 @@ async function initializeOracle() {
   const [deployer] = await ethers.getSigners();
 
   // Uniswap V3 Pool 地址
-  const poolAddress = "0x2d7ad7a7b7021e681b697cdf955169c710c95cb1";
+  const poolAddress = "0xaccde1b759e723c8d7e3758f925c77c29ab58f9c";
   
   const IUniswapV3Pool = await ethers.getContractFactory("UniswapV3Pool");
   const pool = IUniswapV3Pool.attach(poolAddress);

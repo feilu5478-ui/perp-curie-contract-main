@@ -4,9 +4,9 @@ import { ethers } from "hardhat";
 async function debugPoolExistence() {
   console.log("=== 诊断池子存在性问题 ===");
 
-  const baseTokenAddress = "0x15605CCB7e9a1D40F5c911abD03eaF43EF45326e";
-  const marketRegistryAddress = "0x91F83B0351b89194366a9b6986EE7887e6F7A0c5";
-  const clearingHouseAddress = "0x32fc2774A8aec3e6e208E2f371b93034D87cE5BB";
+  const baseTokenAddress = "0x3ee71768e55eb5ca6ec929594e25cd87fa6a8feb";
+  const marketRegistryAddress = "0x2911377369fA73F97125eF1816Ac6475cADea3b6";
+  const clearingHouseAddress = "0xcdEa7bEF2E550eC317E4FEc80Fc59B00AE271fa3";
 
   const MarketRegistry = await ethers.getContractFactory("MarketRegistry");
   const marketRegistry = MarketRegistry.attach(marketRegistryAddress);
@@ -80,7 +80,7 @@ async function debugPoolExistence() {
     const poolAddress = await UniswapV3Factory.getPool(
       baseTokenAddress,
       quoteToken,
-      500 // 0.05% fee
+      10000 // 0.05% fee
     );
 
     console.log("Uniswap 池子地址:", poolAddress);

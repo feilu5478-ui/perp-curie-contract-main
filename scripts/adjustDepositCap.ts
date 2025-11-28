@@ -12,12 +12,12 @@ async function main() {
 
   // 检查当前上限
   const currentCap = await clearingHouseConfig.getSettlementTokenBalanceCap();
-  console.log("当前结算代币余额上限:", ethers.utils.formatEther(currentCap));
+  console.log("当前结算代币余额上限:", currentCap);
 
   const USDC_DECIMALS = 6;
   // const UNI_FEE_TIER = 10000; // 1%
-  const SETTLEMENT_TOKEN_BALANCE_CAP = parseUnits("10000000", USDC_DECIMALS);
-
+  const SETTLEMENT_TOKEN_BALANCE_CAP = parseUnits("1000000000", USDC_DECIMALS);
+  console.log("目标结算代币余额上限:", SETTLEMENT_TOKEN_BALANCE_CAP);
   // 检查是否有权限修改
   try {
     const owner = await clearingHouseConfig.owner();
@@ -26,7 +26,7 @@ async function main() {
 
     if (owner.toLowerCase() === signer.address.toLowerCase()) {
       // 有权限，可以修改上限
-      const newCap = ethers.utils.parseEther("10000000");
+      const newCap = ethers.utils.parseEther("1000000000");
       console.log(`设置新的上限: ${ethers.utils.formatEther(newCap)}`);
 
       const tx = await clearingHouseConfig.setSettlementTokenBalanceCap(SETTLEMENT_TOKEN_BALANCE_CAP);
@@ -36,7 +36,7 @@ async function main() {
       
       // 验证更新
       const updatedCap = await clearingHouseConfig.getSettlementTokenBalanceCap();
-      console.log("更新后的上限:", ethers.utils.formatEther(updatedCap));
+      console.log("更新后的上限:", updatedCap);
     } else {
       console.log("❌ 你不是合约所有者，无法修改上限");
     //   await suggestAlternativeSolutions(currentCap);

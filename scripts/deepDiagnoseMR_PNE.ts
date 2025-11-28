@@ -4,7 +4,7 @@ import { ethers } from "hardhat";
 async function deepDiagnoseMR_PNE() {
   console.log("=== 深度诊断 MR_PNE 错误 ===");
 
-  const baseTokenAddress = "0x14aA73eB98C623C8712c445847873AD0D29BD834";
+  const baseTokenAddress = "0x9efd6d5c81c6e22b822b6877abcf82398269f800";
   const marketRegistryAddress = "0x2911377369fA73F97125eF1816Ac6475cADea3b6";
   const exchangeAddress = "0x4EEe99beA14d52515A94463ca4D1d739Ad2a0F5F";
   const clearingHouseAddress = "0xcdEa7bEF2E550eC317E4FEc80Fc59B00AE271fa3";

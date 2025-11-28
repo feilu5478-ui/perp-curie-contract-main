@@ -14,16 +14,16 @@ async function main() {
   console.log("当前 TWAP 间隔:", (await clearingHouseConfig.getTwapInterval()).toString());
   
   // 临时设置为较小的值用于测试
-  const tempTwapInterval = 1;
+  const tempTwapInterval = 900;
   
-//   await clearingHouseConfig.setTwapInterval(tempTwapInterval);
-//   console.log("TWAP 间隔已设置为:", tempTwapInterval, "秒");
+  // await clearingHouseConfig.setTwapInterval(tempTwapInterval);
+  // console.log("TWAP 间隔已设置为:", tempTwapInterval, "秒");
   const tTwap = await clearingHouseConfig.getTwapInterval();
   console.log("twap间隔：",tTwap);
   // 同时调整标记价格配置
   
-  await clearingHouseConfig.setMarkPriceMarketTwapInterval(tempTwapInterval, {gasLimit: 1000000});
-  await clearingHouseConfig.setMarkPricePremiumInterval(tempTwapInterval, {gasLimit: 1000000});
+  // await clearingHouseConfig.setMarkPriceMarketTwapInterval(tempTwapInterval);
+  // await clearingHouseConfig.setMarkPricePremiumInterval(tempTwapInterval);
   const [currentMarketTwap, currentPremiumTwap] = await clearingHouseConfig.getMarkPriceConfig();
   console.log("当前标记价格配置 - 市场TWAP:", currentMarketTwap.toString(), "溢价间隔:", currentPremiumTwap.toString());
   

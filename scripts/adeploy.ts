@@ -71,7 +71,7 @@ async function main() {
 
   // // 部署 PriceFeedDispatcher
   const PriceFeedDispatcher = await ethers.getContractFactory("PriceFeedDispatcher");
-  const priceFeedDispatcher = PriceFeedDispatcher.attach("0x0AF5C70D0eb85e40C1E6D670778A35A5b0ff8CE9");
+  const priceFeedDispatcher = PriceFeedDispatcher.attach("0x3895e6d1d86d7b91D36072368804A5c563597Ea8");
   // const priceFeedDispatcher = await PriceFeedDispatcher.deploy("0x4aB0123054Cc53909818d4bBC356c14A29fcd65B");
   // await priceFeedDispatcher.deployed();
   console.log("PriceFeedDispatcher deployed to:", priceFeedDispatcher.address);
@@ -81,7 +81,7 @@ async function main() {
 
   // 首先部署 QuoteToken
   const QuoteToken = await ethers.getContractFactory("QuoteToken");
-  const quoteToken = QuoteToken.attach("0xB736Ce12ee74345600aeDFb9c27B6A8822D4C892");
+  const quoteToken = QuoteToken.attach("0xb736ce12ee74345600aedfb9c27b6a8822d4c892");
   // const quoteToken = await QuoteToken.deploy();
   // await quoteToken.deployed();
   // await quoteToken.initialize("vUSDC", "vUSDC");
@@ -89,10 +89,10 @@ async function main() {
 
   // 然后部署 BaseToken
   const BaseToken = await ethers.getContractFactory("BaseToken");
-  const baseToken = BaseToken.attach("0x14aA73eB98C623C8712c445847873AD0D29BD834");
+  const baseToken = BaseToken.attach("0x9efd6d5c81c6e22b822b6877abcf82398269f800");
   // const baseToken = await BaseToken.deploy();
   // await baseToken.deployed();
-  // await baseToken.initialize("vETH", "vETH", priceFeedDispatcher.address);
+  // await baseToken.initialize("vBTC", "vBTC", priceFeedDispatcher.address);
   console.log("BaseToken deployed to:", baseToken.address);
 
   // 检查地址顺序是否符合 Uniswap 要求 (token0 < token1)
@@ -284,14 +284,14 @@ async function main() {
   // 在 Uniswap V3 中创建池子
   // await uniV3Factory.createPool(baseToken.address, quoteToken.address, UNI_FEE_TIER);
   // const poolAddress = await uniV3Factory.getPool(baseToken.address, quoteToken.address, UNI_FEE_TIER);
-  const poolAddress = "0x2d7ad7a7b7021e681b697cdf955169c710c95cb1";
+  const poolAddress = "0xaccde1b759e723c8d7e3758f925c77c29ab58f9c";
   console.log("Uniswap V3 Pool created at:", poolAddress);
 
   // 获取池子合约实例并初始化价格
-  // const IUniswapV3Pool = await ethers.getContractFactory("UniswapV3Pool");
-  // const pool = IUniswapV3Pool.attach(poolAddress);
-  // const initPrice = "2827.707619"
-  // // 初始化池子
+  const IUniswapV3Pool = await ethers.getContractFactory("UniswapV3Pool");
+  const pool = IUniswapV3Pool.attach(poolAddress);
+  const initPrice = "91442"
+  // 初始化池子
   // await pool.initialize(encodePriceSqrt(initPrice,"1"));
   console.log("Pool initialized successfully");
 
@@ -316,11 +316,11 @@ async function main() {
   console.log("Tokens minted to ClearingHouse");
 
   // 在市场注册表中添加池子
-  await marketRegistry.addPool(baseToken.address, UNI_FEE_TIER);
+  await marketRegistry.addPool(baseToken.address, UNI_FEE_TIER, { gasLimit: 1000000 });
   console.log("Pool added to MarketRegistry");
 
   // 设置市场注册表的费用管理员
-  await marketRegistry.setFeeManager(deployer.address, true);
+  // await marketRegistry.setFeeManager(deployer.address, true);
   console.log("Fee manager set");
 
   console.log("\n=== 部署完成! ===");

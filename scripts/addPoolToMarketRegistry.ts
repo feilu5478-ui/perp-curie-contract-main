@@ -8,7 +8,7 @@ async function main() {
   
   // 合约地址
   const marketRegistryAddress = "0x2911377369fA73F97125eF1816Ac6475cADea3b6";
-  const baseToken = "0x14aA73eB98C623C8712c445847873AD0D29BD834";
+  const baseToken = "0x3ee71768e55eb5ca6ec929594e25cd87fa6a8feb";
 
   const MarketRegistry = await ethers.getContractFactory("MarketRegistry");
   const marketRegistry = MarketRegistry.attach(marketRegistryAddress);
